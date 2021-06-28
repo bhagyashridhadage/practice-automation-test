@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE log4j:configuration SYSTEM "log4j.dtd">
+
+<log4j:configuration
+	xmlns:log4j="http://jakarta.apache.org/log4j/" debug="false">
+	<appender name="fileAppender"
+		class="org.apache.log4j.RollingFileAppender">
+		<param name="Threshold" value="INFO" />
+		<param name="maxFileSize" value="1MB" />
+		<param name="maxBackupIndex" value="3" />
+		<param name="Append" value="true" />
+		<param name="File"
+			value="./src/test/resources/logs/MMeetingsLogs.log" />
+		<layout class="org.apache.log4j.PatternLayout">
+			<!-- param name="ConversionPattern" value="%d %-5p [%c{1}] %m %n" / -->
+			<!-- param name="ConversionPattern" value="%d{yyyy-MMM-dd HH:mm:ss,SSS} 
+				[%t] %c %x%n %-5p %m%n" / -->
+			<param name="ConversionPattern"
+				value="%d{yyyy-MMM-dd HH:mm:ss,SSS} %x [%-5p] %m%n" />
+		</layout>
+	</appender>
+	<root>
+		<level value="INFO" />
+		<appender-ref ref="fileAppender" />
+	</root>
+</log4j:configuration>
